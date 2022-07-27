@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Second extends React.Component {
+class First extends React.Component {
 
   state = {
     name: 'Inna',
@@ -46,4 +46,4 @@ class Second extends React.Component {
   }
 }
 
-export default Second;
+export default First;

@@ -1,13 +1,13 @@
 import React from 'react';
-import Second from './components/second'
-
+// import Second from './components/second'
+import First from './components/first';
 
 function App() {
 
   let mySurname = 'Bianche';
   return (
     <div>
-      <Second surname={mySurname}/>
+      <First surname={mySurname}/>
     </div>
   );
 }
