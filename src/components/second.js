@@ -6,8 +6,12 @@ class Second extends React.Component {
     name: 'Inna'
   };
 
-  klik(evt){
-    console.log('kliknalem2', evt);
+  klik = (evt) => {
+    this.setState(   //zmiana state za pomoca funkcji setState
+      {name: 'Ala'},
+      () => console.log('wew', this.state.name)
+    );
+    console.log('zew', this.state.name);
   }
 
   zmiana(evt){
