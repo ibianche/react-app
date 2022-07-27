@@ -9,13 +9,16 @@ function App() {
     {id: 3, nazwa: 'tygrys', waga: 150},
   ];
 
+  const klik = zwierze => () => {   // <--- to  () => jezeli jeden argument mozna bez nawiasow
+    console.log('klik');
+    console.log(zwierze)
+  };
 
   let listaNumerow = zwierzeta.map(zwierze => {   //'zwierze' okreslamy nazwe-indeks elementu
 
       return (
-        <div key={zwierze.id}>
+        <div key={zwierze.id} onClick={klik(zwierze)}>
           <h3>{zwierze.nazwa}</h3>
-          <h4>{zwierze.waga}</h4>
         </div>
       )
     });
