@@ -1,31 +1,28 @@
 import React from 'react';
-// import Second from './components/second'
-import First from './components/first';
-
-function Zaloguj() {
-  return <h1>Zaloguj się</h1>
-}
-
-function Wyloguj() {
-  return <h1>Wyloguj się</h1>
-}
-
-function Auth(props) {
-  if(props.zalogowany){
-    return <Wyloguj/>
-  }else{
-    return <Zaloguj/>
-  }
-}
 
 
 function App() {
 
-  let mySurname = 'Bianche';
+  let zwierzeta = [
+    {id: 1, nazwa: 'lew', waga: 200},
+    {id: 2, nazwa: 'slon', waga: 600},
+    {id: 3, nazwa: 'tygrys', waga: 150},
+  ];
+
+
+  let listaNumerow = zwierzeta.map(zwierze => {   //'zwierze' okreslamy nazwe-indeks elementu
+
+      return (
+        <div key={zwierze.id}>
+          <h3>{zwierze.nazwa}</h3>
+          <h4>{zwierze.waga}</h4>
+        </div>
+      )
+    });
 
   return (
     <div>
-      <Auth zalogowany={false}/>
+      {listaNumerow}
     </div>
   );
 }
