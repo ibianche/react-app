@@ -1,27 +1,13 @@
 import React from 'react';
-
-
-class Second extends React.Component {
-  render() {
-    return <h1>Moje nazwisko to: {this.props.surname}</h1>
-  }
-}
-
-function First(props) {
-  return <h1>Moje imie to: {props.name}</h1>
-}
-
-
+import Second from './components/second'
 
 
 function App() {
 
-  let myName = 'Inna';
-  let mySurname = 'Bianche'
+  let mySurname = 'Bianche';
   return (
     <div>
-    <First name={myName}/>
-    <Second surname={mySurname}/>
+      <Second surname={mySurname}/>
     </div>
   );
 }
