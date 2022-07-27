@@ -1,49 +1,51 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
-class First extends React.Component {
+function First (props){
 
-  state = {
-    name: 'Inna',
-    surname:'',
-    data: new Date()
-  };
+  const [name, setName] = useState('Inna');
+  const [surname, setSurname] = useState('');
+  const [date, setDate] = useState(new Date());
 
-  componentDidMount() {
+  useEffect(() => {             //zamiast componentDidMount w klasie
     console.log('poczatek komponentu');
-    this.setState({surname: this.props.surname});
-    this.inter = setInterval(() => {
-      this.setState({data: new Date()})
-    }, 1000);
-  };
+      setSurname(props.surname);
+      // setInterval(() => {
+      //  setDate(new Date())
+      // }, 1000);
 
-  componentWillUnmount() {
-    clearInterval(this.inter);
-    console.log('koniec komponentu');
+      return () =>{
+        // clearInterval(this.inter);
+          console.log('koniec komponentu');
+
+      }
+    }, []);
+
+
+  // componentWillUnmount() {              //zamiast componentWillUnmount() w klasie
+  //   clearInterval(this.inter);
+  //   console.log('koniec komponentu');
+  // }
+
+  const klik = (evt) => {
+    setName('Ala'); //metodą setName zmieniamy wartosc name
+    console.log(name);
   }
+  // zmiana = (evt) => {
+  //   this.setState({surname: evt.target.value});
+  // };
 
-  klik = (evt) => {
-    this.setState(   //zmiana state za pomoca funkcji setState
-      {name: 'Ala'},
-      () => console.log('wew', this.state.name)
-    );
-    console.log('zew', this.state.name);
-  };
 
-  zmiana = (evt) => {
-    this.setState({surname: evt.target.value});
-  };
-
-  render() {
     return(
       <div>
-        <h1>{this.state.data.toString()}</h1>
-    <h1>Moje imie to: {this.state.name}</h1>
-    <h1 onClick={this.klik}>
-      Moje nazwisko to: {this.state.surname}</h1>
-        <input type='text' onChange={this.zmiana}/>
+        <h1>{date.toString()}</h1>
+    <h1>Moje imie to: {name}</h1>
+    <h1 onClick={klik}>
+      Moje nazwisko to: {surname}</h1>
+        {/*<input type='text' onChange={this.zmiana}/>*/}
       </div>
     )
-  }
+
 }
 
 export default First;
+
